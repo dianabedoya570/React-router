@@ -2,6 +2,7 @@ import React, { useEffect, useState} from "react";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { Card } from "../components/Card";
 
 const RickAndMorty = () => {
   const [characters, setCharacters] = useState([]);
@@ -33,10 +34,10 @@ const RickAndMorty = () => {
       <div >
         
         {characters.length>=1 &&  characters.map((character, index) => (
-            <div key={index}>
-              {character.name}
-              <img src={character.image} alt={character.name} />
-            </div>
+          <Card
+            key={index}
+            name={character.name}
+            image={character.image} />
           ))
         }
       </div>
