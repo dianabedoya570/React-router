@@ -6,7 +6,7 @@ import { Card } from "../components/Card";
 
 const RickAndMorty = () => {
   const [characters, setCharacters] = useState([]);
-
+  const [loader, setLoader] = useState(true);
 
   const getAllCharacters = () => {
     const url = 'https://rickandmortyapi.com/api/character';
@@ -24,7 +24,7 @@ const RickAndMorty = () => {
 
   //Render
   useEffect(() => { 
-   
+    setLoader(false);
     getAllCharacters();
   },[])
 
@@ -32,7 +32,7 @@ const RickAndMorty = () => {
     <>
       <Header>Header</Header>
       <div >
-        
+      { loader && <div> Loading...</div>}
         {characters.length>=1 &&  characters.map((character, index) => (
           <Card
             key={index}
