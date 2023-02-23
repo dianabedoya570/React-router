@@ -3,6 +3,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 //import { Card } from "../components/CardList/Card";
 import { CardList } from "../components/CardList";
+import { Loader } from "../components/Loader";
 const Pokemon = () => {
   const [characters, setCharacters] = useState([]);
   const [loader, setLoader] = useState(true);
@@ -66,7 +67,7 @@ const Pokemon = () => {
   return (
     <>
       <Header>Header</Header>
-      { loader && <div> Loading...</div>}
+      { loader && <Loader/>}
       {characters.length>=1 && renderPokemons()}
       <Footer>Footer</Footer>
     </>
