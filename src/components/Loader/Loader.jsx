@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./loader.scss"
 
 const Loader = () => {
   
@@ -7,7 +7,8 @@ const Loader = () => {
 
   
   return (
-    <div class="lds-default">
+    <div>
+      <div class="lds-default">
       <div></div>
       <div></div>
       <div></div>
@@ -21,6 +22,8 @@ const Loader = () => {
       <div></div>
       <div></div>
     </div>
+    </div>
+
   );
 
 };
