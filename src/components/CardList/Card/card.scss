@@ -2,7 +2,7 @@
 @import"../../../styles/mixins.scss";
 
 .card{
-  width:33%;
+  width:80%;
   border: 1px solid $secondaryColor;
   border-radius: 5px;
   padding: 14px;
@@ -25,4 +25,16 @@
     max-width: 150px;
   }
 
+}
+//tablet
+@media(min-width:451px) and (max-width:850px){
+  .card{
+    width: 40%;
+  }
+}
+//desktop
+@media(min-width:851px){
+  .card{
+    width: 27%;
+  }
 }

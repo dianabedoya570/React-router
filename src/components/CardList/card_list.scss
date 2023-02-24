@@ -1,5 +1,17 @@
 @import"../../styles/mixins.scss";
+@import"../../styles/global.scss";
 .card-list{
-  @include flex(flex,space-arround);
-  flex-wrap: wrap;
+
+  @include flex(flex,space-around);
+  flex-direction: column;
+ // 
+ 
+}
+
+@media(min-width:451px){
+  .card-list{
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
 }
