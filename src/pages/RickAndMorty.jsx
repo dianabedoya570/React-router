@@ -1,33 +1,26 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { CardList } from "../components/CardList";
-
+import { Context } from "../context";
+import { getAllCharacters } from "../Services/rickAndMortyAPI";
+import { useCharacters } from "../components/hooks";
+import { useData } from "../components/hooks";
 
 const RickAndMorty = () => {
-  const [characters, setCharacters] = useState([]);
+  //  const { characters } = useCharacters("ram");
+  const { data: characters } = useData([], getAllCharacters);
   const [loader, setLoader] = useState(true);
+  const context = useContext(Context);
+  console.log("Characters", characters);
+  //rendered
+  useEffect(() => {
+    //  context.rickAndMorty.characters = characters;
 
-  const getAllCharacters = () => {
-    const url = 'https://rickandmortyapi.com/api/character';
-    fetch(url) //request
-      //Resolve promise
-      .then((response) => response.json()) //promesa del fetch
-      .then((data) => {  //es la promesa de la funcion json() que es una funciona asicrona
-        setCharacters(data.results);
-      })
-      //rejected
-      .catch(() => {
-        console.log("Error", console.error);
-      });
-  };
-
-  //Render
-  useEffect(() => { 
+    context.redirectDetailsRoute = "/rickandmorty";
     setLoader(false);
-    getAllCharacters();
-  },[])
+  }, []);
 
   return (
     <>
@@ -36,9 +29,6 @@ const RickAndMorty = () => {
       <CardList list={characters} />
       <Footer>Footer</Footer>
     </>
-    
-
   );
-
 };
 export default RickAndMorty;

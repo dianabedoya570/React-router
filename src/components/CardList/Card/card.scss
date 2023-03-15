@@ -7,7 +7,7 @@
   border-radius: 5px;
   padding: 14px;
   margin: 5px;
-  @include flex(flex,space-arround);
+  @include flex(flex,space-around);
 
     &__img{
       width:50%;

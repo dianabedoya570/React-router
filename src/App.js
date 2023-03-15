@@ -1,13 +1,17 @@
-import logo from "./logo.svg";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import React from "react";
 import { CustomRouter } from "./routerP";
+import { Context, initialContext } from "./context";
 import "./App.scss";
+// se definen los objetos del initial context
+
 function App() {
   return (
-    <div className="App">
-      <CustomRouter />
-    </div>
+    //se llama el contexto para que envuelva toda la aplicación
+    <Context.Provider value={initialContext}>
+      <div className="App">
+        <CustomRouter />
+      </div>
+    </Context.Provider>
   );
 }
 
