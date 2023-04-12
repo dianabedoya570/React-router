@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 import { CardList } from "../components/CardList";
 import { Context } from "../context";
 import { getAllCharacters } from "../Services/rickAndMortyAPI";
-import { useCharacters } from "../components/hooks";
+//import { useCharacters } from "../components/hooks";
 import { useData } from "../components/hooks";
 
 const RickAndMorty = () => {
